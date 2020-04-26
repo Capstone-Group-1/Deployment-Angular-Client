@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/8eb90669-33cd-4157-94fd-740e56312281/resourceGroups/KSU-Sports-Statistics/providers/Microsoft.Web/sites/ksu-sports-statistics",
+    "appService.deploySubpath": "dist/frontend"
+}

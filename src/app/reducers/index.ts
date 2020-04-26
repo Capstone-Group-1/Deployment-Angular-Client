@@ -5,15 +5,18 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import * as fromApp from './app.reducer';
-import * as AppActions from '../actions/app.action';
+import { InjectionToken } from '@angular/core';
 
 export interface State {
   [fromApp.appFeatureKey]: fromApp.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  [fromApp.appFeatureKey]: fromApp.reducer,
+  [fromApp.appFeatureKey]: fromApp.reducer
 };
+
+export const REDUCERS_TOKEN = new InjectionToken<ActionReducerMap<State>>('App Reducers');
+export const reducerProvider = { provide: REDUCERS_TOKEN, useValue: reducers };
 
 export const selectApp = (state: State) => state[fromApp.appFeatureKey];
 

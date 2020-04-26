@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ExampleComponent } from './example/example.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers, metaReducers, REDUCERS_TOKEN, reducerProvider } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './effects/app.effects';
 import { environment } from 'src/environments/environment';
@@ -53,7 +53,7 @@ import { PlayerStatsComponent } from './team/roster/player/player-stats/player-s
     MatAutocompleteModule,
     MatInputModule,
     MDBBootstrapModule.forRoot(),
-    StoreModule.forRoot(reducers, {
+    StoreModule.forRoot(REDUCERS_TOKEN, {
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
@@ -68,7 +68,7 @@ import { PlayerStatsComponent } from './team/roster/player/player-stats/player-s
     ChartsModule
   ],
   entryComponents: [PlayerComponent],
-  providers: [ApiService],
+  providers: [ApiService, reducerProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule {
