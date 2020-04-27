@@ -48,7 +48,7 @@ export class ApiService {
   // GET list of examples
   getExamples(): Observable<Example[]> {
     return this.http
-      .get<Example[]>(`${API_URL}/examples`).pipe(
+      .get<Example[]>(`https://justinmckenna.pythonanywhere.com/examples`).pipe(
         map(data => data),
         catchError(error => throwError(error))
       )
@@ -57,7 +57,7 @@ export class ApiService {
   getRosters(): Observable<Roster[]> {
     let teamAcr = this.teamAcronym;
     return this.http
-      .get<Roster[]>(`${API_URL}/team/roster?sport=${teamAcr}`).pipe(
+      .get<Roster[]>(`https://justinmckenna.pythonanywhere.com/team/roster?sport=${teamAcr}`).pipe(
         map(data => data),
         catchError(error => throwError(error))
       );
@@ -66,7 +66,7 @@ export class ApiService {
   getCurrentTeamStats(): Observable<Stat[]> {
     let teamAcr = this.teamAcronym;
     return this.http
-      .get<Stat[]>(`${API_URL}/team/stats?sport=${teamAcr}`).pipe(
+      .get<Stat[]>(`https://justinmckenna.pythonanywhere.com/team/stats?sport=${teamAcr}`).pipe(
         map(data => data),
         catchError(error => throwError(error))
       );
@@ -75,7 +75,7 @@ export class ApiService {
   getPlayer(id: number): Observable<Roster> {
     let teamAcr = this.teamAcronym;
     return this.http
-      .get<Roster>(`${API_URL}/player?sport=${teamAcr}&id=${id}`).pipe(
+      .get<Roster>(`https://justinmckenna.pythonanywhere.com/player?sport=${teamAcr}&id=${id}`).pipe(
         map(data => data),
         catchError(error => throwError(error))
       );
@@ -84,7 +84,7 @@ export class ApiService {
   getPlayerStats(id: number): Observable<Stat[]> {
     let teamAcr = this.teamAcronym;
     return this.http
-      .get<Stat[]>(`${API_URL}/player/stats?sport=${teamAcr}&id=${id}`).pipe(
+      .get<Stat[]>(`https://justinmckenna.pythonanywhere.com/player/stats?sport=${teamAcr}&id=${id}`).pipe(
         map(data => data),
         catchError(error => throwError(error))
       );
@@ -93,7 +93,7 @@ export class ApiService {
   getProgressStatLabels(): Observable<Object[]> {
     let teamAcr = this.teamAcronym;
     return this.http
-      .get<string[]>(`${API_URL}/team/stats/statlist?sport=${teamAcr}`).pipe(
+      .get<string[]>(`https://justinmckenna.pythonanywhere.com/team/stats/statlist?sport=${teamAcr}`).pipe(
         map(data => data),
         catchError(error => throwError(error))
       );
@@ -102,7 +102,7 @@ export class ApiService {
   async getProgressStat(stat: string): Promise<Progress[]> {
     let teamAcr = this.teamAcronym;
     const data = await this.http
-      .get<Progress[]>(`${API_URL}/team/stats/progress?sport=${teamAcr}&stat=${stat}`).toPromise();
+      .get<Progress[]>(`https://justinmckenna.pythonanywhere.com/team/stats/progress?sport=${teamAcr}&stat=${stat}`).toPromise();
     return data;
   }
 }
