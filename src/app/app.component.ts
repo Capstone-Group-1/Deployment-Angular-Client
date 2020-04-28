@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
+import { startWith, map, filter } from 'rxjs/operators';
 import { Store, select } from "@ngrx/store";
 import * as fromStore from "./reducers/index";
 import { updateCurrentTeam } from './actions/app.action';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { MatSidenav } from '@angular/material';
 
 @Component({
@@ -15,8 +15,19 @@ import { MatSidenav } from '@angular/material';
 })
 export class AppComponent implements OnInit {
   @ViewChild('sidenav', {static: false}) sidenav: MatSidenav;
+
+  showTeamInBreadCrumb: boolean = false;
   
   constructor(private store: Store<fromStore.State>, private router: Router) {
+    router.events.pipe(
+      filter(event => event instanceof NavigationEnd)  
+    ).subscribe((event: NavigationEnd) => {
+      if (event.url.includes("team")) {
+        this.showTeamInBreadCrumb = true;
+      } else {
+        this.showTeamInBreadCrumb = false;
+      }
+    });
   }
 
   myControl = new FormControl();

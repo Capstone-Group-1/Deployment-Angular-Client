@@ -7,7 +7,7 @@
             <mdb-breadcrumb-item>
               <mdb-icon fas class="mr-1"></mdb-icon> {{title}}
             </mdb-breadcrumb-item>
-            <mdb-breadcrumb-item *ngIf="team">
+            <mdb-breadcrumb-item *ngIf="showTeamInBreadCrumb">
               <mdb-icon fas icon="caret-right" class="mr-1"></mdb-icon> {{team}}
             </mdb-breadcrumb-item>
           </mdb-breadcrumb>
