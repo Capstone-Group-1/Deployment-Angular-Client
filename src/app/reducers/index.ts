@@ -20,7 +20,6 @@ export const reducerProvider = { provide: REDUCERS_TOKEN, useValue: reducers };
 
 export const selectApp = (state: State) => state[fromApp.appFeatureKey];
 
-export const getExamples = createSelector(selectApp, (state: fromApp.State) => state.examples);
 export const getCurrentTeam = createSelector(selectApp, (state: fromApp.State) => {
   if (state.currentTeam == "") {
     return localStorage.getItem('team');

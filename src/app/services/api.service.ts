@@ -3,8 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import {API_URL} from '../env';
-import { Example } from '../models/example-model';
 import { Roster } from '../models/roster';
 import { Stat } from '../models/stat';
 import { select, Store } from '@ngrx/store';
@@ -43,15 +41,6 @@ export class ApiService {
         }
       }
     });
-  }
-
-  // GET list of examples
-  getExamples(): Observable<Example[]> {
-    return this.http
-      .get<Example[]>(`https://justinmckenna.pythonanywhere.com/examples`).pipe(
-        map(data => data),
-        catchError(error => throwError(error))
-      )
   }
 
   getRosters(): Observable<Roster[]> {

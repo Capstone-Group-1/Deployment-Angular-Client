@@ -7,9 +7,8 @@ import {AppComponent} from './app.component';
 import {ApiService} from './services/api.service';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ExampleComponent } from './example/example.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers, REDUCERS_TOKEN, reducerProvider } from './reducers';
+import { metaReducers, REDUCERS_TOKEN, reducerProvider } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './effects/app.effects';
 import { environment } from 'src/environments/environment';
@@ -29,7 +28,6 @@ import { PlayerStatsComponent } from './team/roster/player/player-stats/player-s
   declarations: [
     AppComponent,
     HomeComponent,
-    ExampleComponent,
     TeamComponent,
     RosterComponent,
     StatsComponent,

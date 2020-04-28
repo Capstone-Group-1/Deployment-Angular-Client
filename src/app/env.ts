@@ -1,1 +1,0 @@
-export const API_URL = 'https://justinmckenna.pythonanywhere.com'; // for hitting local flask endpoints

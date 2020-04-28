@@ -1,5 +1,4 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { Example } from '../models/example-model';
 import * as AppActions from '../actions/app.action';
 import { Roster } from '../models/roster';
 import { Stat } from '../models/stat';
@@ -7,7 +6,6 @@ import { Stat } from '../models/stat';
 export const appFeatureKey = 'app';
 
 export interface State {
-    examples: Example[],
     rosters: Roster[],
     currentTeam: string,
     teamStats: Stat[],
@@ -16,7 +14,6 @@ export interface State {
 }
 
 export const initialState: State = {
-    examples: [],
     rosters: [],
     currentTeam: "",
     teamStats: [],
@@ -26,13 +23,6 @@ export const initialState: State = {
 
 const appReducer = createReducer(
   initialState,
-
-  on(AppActions.examplesLoadedSuccess, (state: State, { examples }) => (
-    {
-      ...state,
-      examples
-    })
-  ),
 
   on(AppActions.updateCurrentTeam, (state: State, { team }) => { 
     localStorage.setItem('team', team);

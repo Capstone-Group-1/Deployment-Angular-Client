@@ -14,7 +14,6 @@ Run angular front end using command "ng serve".
 # Running both frontend and backend
 Run "python3 app.py" and "ng serve" in separate terminals (or run as background processes).
 Cmd + click (control click for windows) on the url (should be something like http://localhost:4200/) to get to the application.
-Go to http://localhost:4200/example to test the integration between Flask and Angular.
 
 # API Endpoints
 /team/roster
